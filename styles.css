@@ -1,0 +1,66 @@
+#main {
+  overflow: hidden;
+  position: relative;
+}
+    
+@media screen and (orientation:landscape) {
+  .orientation0 {
+     width: 1920px;
+     height: 1080px;
+     right: 0px;
+     top: 0px;
+   }
+
+ .orientation90 {
+    transform: rotate(45deg);
+    width: 1080px;
+    height: 1920px;
+    right: -420px;
+    top: -420px;
+  }
+
+  .orientation180 {
+     transform: rotate(180deg);
+     width: 1920px;
+     height: 1080px;
+     right: 0px;
+     top: -24px;
+   }
+
+ .orientation270 {
+    transform: rotate(270deg);
+    width: 1080px;
+    height: 1920px;
+    right: -420px;
+    top: -444px;
+  }
+}
+  
+body {
+	margin: 0px;
+	background-color: black;
+  overflow: hidden;
+}
+
+.block {
+  float: left;
+  width: 96px;
+  height: 96px;
+  text-align: center;
+  vertical-align: middle;
+  color: black;
+	font: 30pt Helvetica; 
+	font-weight: bold;
+}
+
+p {
+  margin: 0px;
+  padding-top: 25px;
+}
+
+.color1 { background-color: #FBD6D3; }
+.color2 { background-color: #FCEED8; }
+.color3 { background-color: #FFFFDD; }
+.color4 { background-color: #D7E5D3; }
+.color5 { background-color: #CCCDFD }
+.color0 { background-color: #E3D0E5; }
