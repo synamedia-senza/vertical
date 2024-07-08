@@ -1,9 +1,7 @@
 document.addEventListener("keydown", function(event) {
 	switch (event.key) {
-		case "ArrowUp": left2x(); break;
-		case "ArrowDown": right2x(); break;
-		case "ArrowLeft": left(); break;
-		case "ArrowRight": right(); break;
+		case "ArrowLeft": rotate(-90); break;
+		case "ArrowRight": rotate(90); break;
 		default: return;
 	}
 	event.preventDefault();
@@ -29,43 +27,8 @@ addBlocks();
 
 let orientation = 0;
 
-function left() {
+function rotate(degrees) {
   let old = orientation;
-  orientation = (orientation + 270) % 360;
-  spin(old, orientation, -1);
-}
-
-function left2x() {
-  let old = orientation;
-  orientation = (orientation + 180) % 360;
-  spin(old, orientation, -2);
-}
-
-function right() {
-  let old = orientation;
-  orientation = (orientation + 90) % 360;
-  spin(old, orientation, 1);
-}
-
-function right2x() {
-  let old = orientation;
-  orientation = (orientation + 180) % 360;
-  spin(old, orientation, 2);
-}
-
-function spin(from, to, by) {
-  let rotation = from;
-  let count = 0;
-  let interval = setInterval(() => {
-    rotation += by;
-    count++;
-    document.getElementById("main").style.transform = `rotate(${rotation}deg)`;
-    if (count == 45) {
-      document.getElementById("main").classList.remove(`orientation${from}`);
-      document.getElementById("main").classList.add(`orientation${to}`);
-    }
-    if (count == 90) {
-      clearInterval(interval);
-    }
-  }, 4);
+  orientation = (orientation + degrees + 360) % 360;
+  main.style.animationName = `rotate-${old}-${orientation}`;
 }
